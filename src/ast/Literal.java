@@ -1,0 +1,16 @@
+package ast;
+
+public enum Literal {
+
+	BOOLEAN,
+	INTEGER,
+	CONST,
+	ARRAY_TYPE_OF_INTEGER,
+	ARRAY_TYPE_OF_BOOLEAN,
+
+	CONST_INTEGER,
+	CONST_BOOLEAN,
+	CONST_ARRAY
+	
+	
+}

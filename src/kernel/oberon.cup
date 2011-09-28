@@ -1,0 +1,169 @@
+package kernel;
+
+import java_cup.runtime.*;
+
+parser code  {: 
+  AnalisadorLexico lexico;
+
+  public Grm10(AnalisadorLexico l) {
+    this();
+    lexico=l;
+  }
+
+  public void syntax_error(java_cup.runtime.Symbol current) {
+    report_error("Syntax error (" + current.sym + ")", current);
+  }
+  public void report_error(String message, java_cup.runtime.Symbol info) {
+    lexer.errorMsg(message, info);
+  }
+:};
+
+
+scan with {: return lexico.nextCupToken(); :};
+
+
+terminal BOOLEAN; // primitive_type
+terminal INTEGER; // integral_type
+terminal REAL; // floating_point_type
+terminal OCOL, CCOL; // array_type
+terminal java.lang.String ID; // name
+terminal PONTO; // qualified_name 
+terminal PTVIRGULA, MULT, VIRGULA, OPAR, CPAR, ATRIB, DOISPONTOS;
+terminal IF, ELSE, THEN, ELSIF; // if_then_statement, if_then_else_statement
+terminal DO, WHILE, REPEAT, UNTIL; // while_statement, do_statement
+terminal MAIS, MENOS, IGUAL, NOT, DIV, MOD;
+terminal MENOR, MAIOR, MENORIGUAL, MAIORIGUAL; // relational_expression
+terminal DIFERENTE; // equality_expression
+terminal AND; // and_expression
+terminal OR;  // inclusive_or_expression
+terminal QUESTION; // conditional_expression
+terminal MODULE;
+terminal BEGIN;
+terminal END;
+terminal CONST;
+terminal VAR;
+terminal OF;
+terminal ARRAY;
+terminal PROCEDURE;
+terminal SIZE;
+terminal WRITE, WRITELN;
+terminal READ, READLN;
+terminal SQRT, SQR;
+
+
+
+non terminal module;
+non terminal constdecl;
+non terminal vardecl;
+non terminal idlist;
+non terminal vartype;
+non terminal arraytype;
+non terminal procdecl;
+non terminal procheader;
+non terminal procbody;
+non terminal formalparse;
+non terminal fpsection;
+non terminal statements;
+non terminal declarations;
+non terminal expression;
+non terminal andexp;
+non terminal relexp;
+non terminal aritexp;
+non terminal term;
+non terminal factor;
+non terminal primary;
+non terminal proccall;
+non terminal actualpar;
+non terminal literal;
+non terminal variable;
+non terminal statement;
+non terminal assignment;
+non terminal conditional;
+non terminal repetition;
+non terminal io_statement;
+non terminal procdecls;
+non terminal vardecls;
+non terminal fpslist;
+non terminal statementlist;
+non terminal expressionlist;
+non terminal factorlist;
+non terminal elseiflist;
+non terminal constlist;
+non terminal formalpars;
+non terminal addop;
+non terminal multop;
+non terminal relop;
+
+start with module;
+
+module ::= MODULE ID PTVIRGULA declarations BEGIN statements END ID PONTO;
+
+declarations ::=  constdecl 
+				| vardecl
+				| procdecls;
+				
+procdecls ::= procdecls procdecl PTVIRGULA | ;
+
+constdecl ::= CONST | CONST constlist;
+
+constlist ::= constlist ID IGUAL expression PTVIRGULA | ;
+
+vardecl ::= VAR vardecls;
+
+vardecls ::= vardecls idlist DOISPONTOS vartype PTVIRGULA | ;
+
+idlist ::=  ID VIRGULA idlist | ID ; 
+
+arraytype ::= ARRAY expression OF vartype | ARRAY OF vartype;
+
+vartype ::= BOOLEAN | INTEGER | REAL | arraytype;
+
+procdecl ::= procheader PTVIRGULA | procheader PTVIRGULA procbody;
+
+procheader ::= PROCEDURE ID formalpars | PROCEDURE ID formalpars DOISPONTOS vartype;
+
+procbody ::= declarations BEGIN statements END ID;
+
+formalpars ::= OPAR CPAR | OPAR fpsection fpslist CPAR;
+
+fpslist ::= fpslist PTVIRGULA fpsection | ;
+
+fpsection ::= idlist DOISPONTOS vartype | VAR idlist DOISPONTOS vartype;
+
+statements ::= statement |statement statementlist;
+
+statementlist ::= statementlist PTVIRGULA statement | ;
+
+
+
+expression ::= expression OR andexp | andexp;
+
+andexp ::= andexp AND relexp | relexp ;
+relexp ::= aritexp relop aritexp | aritexp;
+aritexp ::= aritexp addop term | term;
+term ::= term multop factor | factor;
+factor ::= primary | factorlist primary;
+factorlist ::= MAIS | MENOS | NOT | OPAR vartype CPAR;
+primary ::= OPAR expression CPAR | literal | variable | proccall;
+proccall ::= ID actualpar;
+actualpar ::= OPAR CPAR | OPAR expression expressionlist;
+expressionlist ::= expressionlist VIRGULA expression | ;
+relop ::= MAIOR | MENOR | MAIORIGUAL | MENORIGUAL | IGUAL | DIFERENTE;
+addop ::= MAIS | MENOS;
+multop ::= MULT | MOD | DIV; 
+literal ::= BOOLEAN | INTEGER;
+variable ::= ID | ID expression | ID PONTO SIZE;
+
+
+
+statement ::= assignment | conditional | repetition | proccall | io_statement;
+assignment ::= variable ATRIB expression;
+conditional ::= IF expression THEN statements END | IF expression THEN statements elseiflist END | IF expression THEN statements ELSE statements END;
+elseiflist ::= elseiflist ELSIF expression THEN statements;
+repetition ::= WHILE expression DO statements END | REPEAT statement UNTIL expression;
+io_statement ::= WRITE OPAR expression CPAR | WRITELN | WRITELN OPAR expression CPAR | READ OPAR expression CPAR ;
+ 
+
+
+
+

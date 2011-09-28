@@ -1,0 +1,390 @@
+
+[]
+[VEC]
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+VarType: INTEGER
+ArrayVarType: Valor Literal : 10
+ArrayVarType: Valor Literal : 10
+[VarDecl: [VEC]ArrayVarType: Valor Literal : 10]
+[VarDecl: [VEC]ArrayVarType: Valor Literal : 10]
+[]
+[V]
+
+VarType: INTEGER
+ArrayVarType: 
+ArrayVarType: 
+FpSection: [V]ArrayVarType: 
+[FpSection: [V]ArrayVarType: ]
+[FpSection: [V]ArrayVarType: ]
+FormalPars: [FpSection: [V]ArrayVarType: ]
+VarType: INTEGER
+VarType: INTEGER
+ProcHeader: MAXFormalPars: [FpSection: [V]ArrayVarType: ]VarType: INTEGER
+
+[]
+[I]
+[I, M]
+VarType: INTEGER
+[VarDecl: [I, M]VarType: INTEGER]
+[J]
+VarType: BOOLEAN
+[VarDecl: [I, M]VarType: INTEGER, VarDecl: [J]VarType: BOOLEAN]
+[VarDecl: [I, M]VarType: INTEGER, VarDecl: [J]VarType: BOOLEAN]
+[]
+Declarations
+Declarations
+Variable: I
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+MAIS
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+BinaryExpression: Valor Literal : 5MAISValor Literal : 3
+BinaryExpression: Valor Literal : 5MAISValor Literal : 3
+BinaryExpression: Valor Literal : 5MAISValor Literal : 3
+BinaryExpression: Valor Literal : 5MAISValor Literal : 3
+Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3
+Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3
+[Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3]
+Variable: J
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Assignment: Variable: V
+Assignment: Variable: V
+[Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3, Assignment: Variable: V]
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+MAIOR
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+BinaryExpression: Variable: IMAIORValor Literal : 5
+BinaryExpression: Variable: IMAIORValor Literal : 5
+BinaryExpression: Variable: IMAIORValor Literal : 5
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+MENOR
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+BinaryExpression: Variable: MMENORVariable: V
+BinaryExpression: Variable: MMENORVariable: V
+BinaryExpression: Variable: MMENORVariable: V
+Variable: M
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Assignment: Variable: V
+Assignment: Variable: V
+[Assignment: Variable: V]
+[]
+
+Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]
+Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]
+[Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]]
+Repetition: WHILEBinaryExpression: Variable: IMAIORValor Literal : 5[Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]]
+Repetition: WHILEBinaryExpression: Variable: IMAIORValor Literal : 5[Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]]
+[Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3, Assignment: Variable: V, Repetition: WHILEBinaryExpression: Variable: IMAIORValor Literal : 5[Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]]]
+Variable: RESULT
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Assignment: Variable: M
+Assignment: Variable: M
+[Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3, Assignment: Variable: V, Repetition: WHILEBinaryExpression: Variable: IMAIORValor Literal : 5[Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]], Assignment: Variable: M]
+ProcBody: MAXDeclarations[Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3, Assignment: Variable: V, Repetition: WHILEBinaryExpression: Variable: IMAIORValor Literal : 5[Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]], Assignment: Variable: M]
+ProcBody: MAXDeclarations[Assignment: BinaryExpression: Valor Literal : 5MAISValor Literal : 3, Assignment: Variable: V, Repetition: WHILEBinaryExpression: Variable: IMAIORValor Literal : 5[Conditional: BinaryExpression: Variable: MMENORVariable: V[Assignment: Variable: V][]], Assignment: Variable: M]
+ProcDecl MAX
+[ProcDecl MAX]
+[V]
+
+VarType: INTEGER
+ArrayVarType: 
+ArrayVarType: 
+FpSection: [V]ArrayVarType: 
+[FpSection: [V]ArrayVarType: ]
+[FpSection: [V]ArrayVarType: ]
+FormalPars: [FpSection: [V]ArrayVarType: ]
+VarType: null
+ProcHeader: READ_VECFormalPars: [FpSection: [V]ArrayVarType: ]VarType: null
+
+[]
+[I]
+[I, M]
+VarType: INTEGER
+[VarDecl: [I, M]VarType: INTEGER]
+[VarDecl: [I, M]VarType: INTEGER]
+[]
+Declarations
+Declarations
+Variable: I
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Assignment: Valor Literal : 0
+Assignment: Valor Literal : 0
+[Assignment: Valor Literal : 0]
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+MENOR
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+BinaryExpression: Variable: IMENORVariable: V
+BinaryExpression: Variable: IMENORVariable: V
+BinaryExpression: Variable: IMENORVariable: V
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+IoStatement: READ
+IoStatement: READ
+[IoStatement: READ]
+Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: READ]
+Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: READ]
+[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: READ]]
+Variable: RESULT
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Assignment: Variable: M
+Assignment: Variable: M
+[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: READ], Assignment: Variable: M]
+ProcBody: READ_VECDeclarations[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: READ], Assignment: Variable: M]
+ProcBody: READ_VECDeclarations[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: READ], Assignment: Variable: M]
+ProcDecl READ_VEC
+[ProcDecl MAX, ProcDecl READ_VEC]
+[V]
+
+VarType: INTEGER
+ArrayVarType: 
+ArrayVarType: 
+FpSection: [V]ArrayVarType: 
+[FpSection: [V]ArrayVarType: ]
+[FpSection: [V]ArrayVarType: ]
+FormalPars: [FpSection: [V]ArrayVarType: ]
+VarType: null
+ProcHeader: PRINT_VECFormalPars: [FpSection: [V]ArrayVarType: ]VarType: null
+
+[]
+[I]
+VarType: INTEGER
+[VarDecl: [I]VarType: INTEGER]
+[VarDecl: [I]VarType: INTEGER]
+[]
+Declarations
+Declarations
+Variable: I
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Assignment: Valor Literal : 0
+Assignment: Valor Literal : 0
+[Assignment: Valor Literal : 0]
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+MENOR
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+BinaryExpression: Variable: IMENORVariable: V
+BinaryExpression: Variable: IMENORVariable: V
+BinaryExpression: Variable: IMENORVariable: V
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+IoStatement: WRITELN_PARAMETO
+IoStatement: WRITELN_PARAMETO
+[IoStatement: WRITELN_PARAMETO]
+Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: WRITELN_PARAMETO]
+Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: WRITELN_PARAMETO]
+[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: WRITELN_PARAMETO]]
+Variable: RESULT
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Assignment: Variable: I
+Assignment: Variable: I
+[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: WRITELN_PARAMETO], Assignment: Variable: I]
+ProcBody: PRINT_VECDeclarations[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: WRITELN_PARAMETO], Assignment: Variable: I]
+ProcBody: PRINT_VECDeclarations[Assignment: Valor Literal : 0, Repetition: WHILEBinaryExpression: Variable: IMENORVariable: V[IoStatement: WRITELN_PARAMETO], Assignment: Variable: I]
+ProcDecl PRINT_VEC
+[ProcDecl MAX, ProcDecl READ_VEC, ProcDecl PRINT_VEC]
+Declarations
+Declarations
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+[Variable: VEC]
+[Variable: VEC]
+ActualPar: [Variable: VEC]
+ProcCall: READ_VEC
+ProcCall: READ_VEC
+[ProcCall: READ_VEC]
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+[Variable: VEC]
+[Variable: VEC]
+ActualPar: [Variable: VEC]
+ProcCall: PRINT_VEC
+ProcCall: PRINT_VEC
+[ProcCall: READ_VEC, ProcCall: PRINT_VEC]
+IoStatement: WRITE
+IoStatement: WRITE
+[ProcCall: READ_VEC, ProcCall: PRINT_VEC, IoStatement: WRITE]
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+Variable: VEC
+[Variable: VEC]
+[Variable: VEC]
+ActualPar: [Variable: VEC]
+ProcCall: MAX
+ProcCall: MAX
+ProcCall: MAX
+ProcCall: MAX
+ProcCall: MAX
+ProcCall: MAX
+ProcCall: MAX
+ProcCall: MAX
+IoStatement: WRITELN_PARAMETO
+IoStatement: WRITELN_PARAMETO
+[ProcCall: READ_VEC, ProcCall: PRINT_VEC, IoStatement: WRITE, IoStatement: WRITELN_PARAMETO]

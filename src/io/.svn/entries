@@ -1,0 +1,47 @@
+8
+
+dir
+2
+http://bruno.unfuddle.com/svn/bruno_compilador/compilador/src/io
+http://bruno.unfuddle.com/svn/bruno_compilador
+
+
+
+2010-08-13T02:26:15.839434Z
+2
+brunoac88
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+133df1c2-2448-4eb5-8e65-c5fdd1a43b25
+
+EscritorArquivo.java
+file
+0
+
+
+add
+
+LeitorArquivo.java
+file
+4
+
+
+
+2010-08-22T15:44:22.000000Z
+b7b3d6c88e427fda3a20d487a1181017
+2010-08-22T16:19:00.121391Z
+4
+brunoac88
+

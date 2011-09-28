@@ -1,0 +1,31 @@
+module Sample; // Cabecalho do modulo
+Var i,j :Integer;
+	vet : array 20 of integer;
+	vet2 : array 5 of boolean;
+
+procedure read_vec2(var k:integer) : Integer;
+	CONST bruno =10; bernardo=bruno;
+	
+	var i,m : Integer;
+	
+	begin i := 0; m:= 5555;
+			read_vec2(m);
+		while (((2*5)> (2*5))) do
+			
+			i:=i+1;
+			m:=i+5
+		end;
+
+		result := m
+		
+	end read_vec2;
+
+
+begin 
+i:=30;
+j:=100;
+read_vec2(j);
+	vet[0] := v[1] * (v[2] - v[3]);
+	vet2[0] := vet[0]
+	
+end Sample.

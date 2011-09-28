@@ -1,0 +1,38 @@
+module Sample; // Cabecalho do modulo
+var vec : array 10 of integer;
+
+procedure max(var v : array of integer) : integer;
+	var i,m : Integer;
+	begin i := 1; m:= v[0];
+		while 3+2+1 	do
+			if m < v[i] then m :=v[i] end
+		end;
+		result := m
+	end max; 
+
+procedure read_vec(var v : array of integer);
+	var i,m : Integer;
+	begin i := 0; 
+		while i < v.size do
+			read(v[i])
+		end;
+		result := m
+	end read_vec;
+
+
+procedure print_vec(var v : array of integer);
+	var i : Integer;
+	begin i := 0; 
+	
+		while i < v.size do
+			writeln(v[i])
+		end;
+		result := i
+	end print_vec;
+
+begin 
+	read_vec(vec);
+	print_vec(vec);
+	writeln; writeln(max(vec))
+	
+end Sample.

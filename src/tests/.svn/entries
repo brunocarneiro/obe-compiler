@@ -1,0 +1,40 @@
+8
+
+dir
+2
+http://bruno.unfuddle.com/svn/bruno_compilador/compilador/src/tests
+http://bruno.unfuddle.com/svn/bruno_compilador
+
+
+
+2010-08-13T02:26:15.839434Z
+2
+brunoac88
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+133df1c2-2448-4eb5-8e65-c5fdd1a43b25
+
+LeitorArquivoTest.java
+file
+
+
+
+
+2010-08-13T02:20:32.000000Z
+e893324f3cfd4e8a95001c01569d9979
+2010-08-13T02:26:15.839434Z
+2
+brunoac88
+

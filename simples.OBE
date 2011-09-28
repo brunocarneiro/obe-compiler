@@ -1,0 +1,9 @@
+module Sample; // Cabecalho do modulo
+Var i:Integer;
+
+begin 
+i:=30
+	
+	
+	
+end Sample.

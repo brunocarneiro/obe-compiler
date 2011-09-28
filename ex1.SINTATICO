@@ -1,0 +1,355 @@
+
+[]
+[I]
+[I, J]
+VarType: INTEGER
+[VarDecl: [I, J]VarType: INTEGER]
+[VET]
+Valor Literal : 20
+Valor Literal : 20
+Valor Literal : 20
+Valor Literal : 20
+Valor Literal : 20
+Valor Literal : 20
+Valor Literal : 20
+Valor Literal : 20
+Valor Literal : 20
+VarType: INTEGER
+ArrayVarType: Valor Literal : 20
+ArrayVarType: Valor Literal : 20
+[VarDecl: [I, J]VarType: INTEGER, VarDecl: [VET]ArrayVarType: Valor Literal : 20]
+[VET2]
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+VarType: BOOLEAN
+ArrayVarType: Valor Literal : 5
+ArrayVarType: Valor Literal : 5
+[VarDecl: [I, J]VarType: INTEGER, VarDecl: [VET]ArrayVarType: Valor Literal : 20, VarDecl: [VET2]ArrayVarType: Valor Literal : 5]
+[VarDecl: [I, J]VarType: INTEGER, VarDecl: [VET]ArrayVarType: Valor Literal : 20, VarDecl: [VET2]ArrayVarType: Valor Literal : 5]
+[]
+[K]
+VarType: INTEGER
+FpSection: [K]VarType: INTEGER
+[FpSection: [K]VarType: INTEGER]
+[FpSection: [K]VarType: INTEGER]
+FormalPars: [FpSection: [K]VarType: INTEGER]
+VarType: INTEGER
+VarType: INTEGER
+ProcHeader: READ_VEC2FormalPars: [FpSection: [K]VarType: INTEGER]VarType: INTEGER
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+Valor Literal : 10
+ConstDecl: BRUNOValor Literal : 10
+Variable: BRUNO
+Variable: BRUNO
+Variable: BRUNO
+Variable: BRUNO
+Variable: BRUNO
+Variable: BRUNO
+Variable: BRUNO
+Variable: BRUNO
+ConstDecl: BERNARDOVariable: BRUNO
+ConstDecl: BERNARDOVariable: BRUNO
+ConstDecl: BERNARDOVariable: BRUNO
+[]
+[I]
+[I, M]
+VarType: INTEGER
+[VarDecl: [I, M]VarType: INTEGER]
+[VarDecl: [I, M]VarType: INTEGER]
+[]
+Declarations
+Declarations
+Variable: I
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Assignment: Valor Literal : 0
+Assignment: Valor Literal : 0
+[Assignment: Valor Literal : 0]
+Variable: M
+Valor Literal : 5555
+Valor Literal : 5555
+Valor Literal : 5555
+Valor Literal : 5555
+Valor Literal : 5555
+Valor Literal : 5555
+Valor Literal : 5555
+Valor Literal : 5555
+Assignment: Valor Literal : 5555
+Assignment: Valor Literal : 5555
+[Assignment: Valor Literal : 0, Assignment: Valor Literal : 5555]
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+[Variable: M]
+[Variable: M]
+ActualPar: [Variable: M]
+ProcCall: READ_VEC2
+ProcCall: READ_VEC2
+[Assignment: Valor Literal : 0, Assignment: Valor Literal : 5555, ProcCall: READ_VEC2]
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+*
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+>
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+*
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+BinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
++
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+BinaryExpression: Variable: I+Valor Literal : 1
+BinaryExpression: Variable: I+Valor Literal : 1
+BinaryExpression: Variable: I+Valor Literal : 1
+BinaryExpression: Variable: I+Valor Literal : 1
+Assignment: BinaryExpression: Variable: I+Valor Literal : 1
+Assignment: BinaryExpression: Variable: I+Valor Literal : 1
+[Assignment: BinaryExpression: Variable: I+Valor Literal : 1]
+Variable: M
+Variable: I
+Variable: I
+Variable: I
+Variable: I
+Variable: I
++
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+Valor Literal : 5
+BinaryExpression: Variable: I+Valor Literal : 5
+BinaryExpression: Variable: I+Valor Literal : 5
+BinaryExpression: Variable: I+Valor Literal : 5
+BinaryExpression: Variable: I+Valor Literal : 5
+Assignment: BinaryExpression: Variable: I+Valor Literal : 5
+Assignment: BinaryExpression: Variable: I+Valor Literal : 5
+[Assignment: BinaryExpression: Variable: I+Valor Literal : 1, Assignment: BinaryExpression: Variable: I+Valor Literal : 5]
+Repetition: WHILEBinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5[Assignment: BinaryExpression: Variable: I+Valor Literal : 1, Assignment: BinaryExpression: Variable: I+Valor Literal : 5]
+Repetition: WHILEBinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5[Assignment: BinaryExpression: Variable: I+Valor Literal : 1, Assignment: BinaryExpression: Variable: I+Valor Literal : 5]
+[Assignment: Valor Literal : 0, Assignment: Valor Literal : 5555, ProcCall: READ_VEC2, Repetition: WHILEBinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5[Assignment: BinaryExpression: Variable: I+Valor Literal : 1, Assignment: BinaryExpression: Variable: I+Valor Literal : 5]]
+Variable: RESULT
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Variable: M
+Assignment: Variable: M
+Assignment: Variable: M
+[Assignment: Valor Literal : 0, Assignment: Valor Literal : 5555, ProcCall: READ_VEC2, Repetition: WHILEBinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5[Assignment: BinaryExpression: Variable: I+Valor Literal : 1, Assignment: BinaryExpression: Variable: I+Valor Literal : 5], Assignment: Variable: M]
+ProcBody: READ_VEC2Declarations[Assignment: Valor Literal : 0, Assignment: Valor Literal : 5555, ProcCall: READ_VEC2, Repetition: WHILEBinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5[Assignment: BinaryExpression: Variable: I+Valor Literal : 1, Assignment: BinaryExpression: Variable: I+Valor Literal : 5], Assignment: Variable: M]
+ProcBody: READ_VEC2Declarations[Assignment: Valor Literal : 0, Assignment: Valor Literal : 5555, ProcCall: READ_VEC2, Repetition: WHILEBinaryExpression: BinaryExpression: Valor Literal : 2*Valor Literal : 5>BinaryExpression: Valor Literal : 2*Valor Literal : 5[Assignment: BinaryExpression: Variable: I+Valor Literal : 1, Assignment: BinaryExpression: Variable: I+Valor Literal : 5], Assignment: Variable: M]
+ProcDecl READ_VEC2
+[ProcDecl READ_VEC2]
+Declarations
+Declarations
+Variable: I
+Valor Literal : 30
+Valor Literal : 30
+Valor Literal : 30
+Valor Literal : 30
+Valor Literal : 30
+Valor Literal : 30
+Valor Literal : 30
+Valor Literal : 30
+Assignment: Valor Literal : 30
+Assignment: Valor Literal : 30
+[Assignment: Valor Literal : 30]
+Variable: J
+Valor Literal : 100
+Valor Literal : 100
+Valor Literal : 100
+Valor Literal : 100
+Valor Literal : 100
+Valor Literal : 100
+Valor Literal : 100
+Valor Literal : 100
+Assignment: Valor Literal : 100
+Assignment: Valor Literal : 100
+[Assignment: Valor Literal : 30, Assignment: Valor Literal : 100]
+Variable: J
+Variable: J
+Variable: J
+Variable: J
+Variable: J
+Variable: J
+Variable: J
+Variable: J
+[Variable: J]
+[Variable: J]
+ActualPar: [Variable: J]
+ProcCall: READ_VEC2
+ProcCall: READ_VEC2
+[Assignment: Valor Literal : 30, Assignment: Valor Literal : 100, ProcCall: READ_VEC2]
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Variable: VET
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Valor Literal : 1
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+*
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Valor Literal : 2
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+-
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Valor Literal : 3
+Variable: V
+Variable: V
+Variable: V
+Variable: V
+BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V
+BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V
+Assignment: BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V
+Assignment: BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V
+[Assignment: Valor Literal : 30, Assignment: Valor Literal : 100, ProcCall: READ_VEC2, Assignment: BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V]
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Variable: VET2
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Valor Literal : 0
+Variable: VET
+Variable: VET
+Variable: VET
+Variable: VET
+Variable: VET
+Variable: VET
+Variable: VET
+Variable: VET
+Assignment: Variable: VET
+Assignment: Variable: VET
+[Assignment: Valor Literal : 30, Assignment: Valor Literal : 100, ProcCall: READ_VEC2, Assignment: BinaryExpression: Variable: V*BinaryExpression: Variable: V-Variable: V, Assignment: Variable: VET]

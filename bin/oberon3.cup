@@ -1,0 +1,341 @@
+package runtime;	
+
+import java_cup.runtime.*;
+import kernel.*;
+import io.*;
+import ast.*;
+import ast.Boolean;
+import java.util.*;
+import util.*;
+import cup.*;
+import kernel.semantico.*;
+import gen.*;
+
+
+parser code  {: 
+  AnalisadorLexico lexico;
+  public Node raiz;
+  public static EscritorArquivo escritor;
+
+
+  public parser(AnalisadorLexico l, EscritorArquivo e) {
+    this();
+    lexico=l;
+    escritor =e;
+    WriterHelper.setEscritor(e);
+    symbolFactory = LogSymbolFactory.getInstance();
+  }
+
+
+  public void syntax_error(java_cup.runtime.Symbol current) {
+    imprimeErro("Erro de Sintaxe (" + current.sym + ")", current);
+  }
+  public void imprimeErro(String message, java_cup.runtime.Symbol info) {
+    lexico.imprimeErro(message, info);
+  }
+
+:};
+
+
+scan with {: return lexico.nextCupToken(); :};
+
+
+terminal String NUM;
+terminal TRUE;
+terminal FALSE;
+terminal BOOLEAN; // primitive_type
+terminal INTEGER; // integral_type
+terminal OCOL, CCOL; // array_type
+terminal java.lang.String ID; // name
+terminal PONTO; // qualified_name 
+terminal PTVIRGULA, MULT, VIRGULA, OPAR, CPAR, ATRIB, DOISPONTOS;
+terminal IF, ELSE, THEN, ELSIF; // if_then_statement, if_then_else_statement
+terminal DO, WHILE, REPEAT, UNTIL; // while_statement, do_statement
+terminal MAIS, MENOS, IGUAL, NOT, DIV, MOD;
+terminal MENOR, MAIOR, MENORIGUAL, MAIORIGUAL; // relational_expression
+terminal DIFERENTE; // equality_expression
+terminal AND; // and_expression
+terminal OR;  // inclusive_or_expression
+terminal MODULE;
+terminal BEGIN;
+terminal END;
+terminal CONST;
+terminal VAR;
+terminal OF;
+terminal ARRAY;
+terminal PROCEDURE;
+terminal SIZE;
+terminal WRITE, WRITELN;
+terminal READ, READLN;
+terminal SQRT, SQR;
+
+
+
+non terminal Module module;
+non terminal ConstDecl constdecl;
+non terminal ArrayList<VarDecl> vardecl;
+non terminal ArrayList<String> idlist;
+non terminal VarType vartype;
+non terminal ArrayVarType arraytype;
+non terminal ProcDecl procdecl;
+non terminal ProcHeader procheader;
+non terminal ProcBody procbody;
+non terminal FormalParse formalparse;
+non terminal FpSection fpsection;
+non terminal ArrayList<Statement> statements;
+non terminal Declarations declarations;
+non terminal Expression expression;
+non terminal Expression andexp;
+non terminal Expression relexp;
+non terminal Expression aritexp;
+non terminal Expression term;
+non terminal Expression factor;
+non terminal Expression primary;
+non terminal ProcCall proccall;
+non terminal ActualPar actualpar;
+non terminal ValorLiteral literal;
+non terminal Expression variable;
+non terminal Statement statement;
+non terminal Assignment assignment;
+non terminal Conditional conditional;
+non terminal Repetition repetion;
+non terminal IoStatement io_statement;
+non terminal ArrayList<ProcDecl> procdecls;
+non terminal ArrayList<VarDecl> vardeclList;
+non terminal FormalPars formalpars;
+non terminal Operador ADDOP;
+non terminal Operador MULTOP;
+non terminal Operador RELOP;
+non terminal ArrayList<Expression> exp_opt;
+non terminal ProcBody procbody_opt;
+non terminal VarType vartype_opt;
+non terminal ArrayList<FpSection> fpsection_opt;
+non terminal ArrayList<FpSection> fpsection_list;
+non terminal var_opt;
+non terminal ConstDecl constdecl_opt;
+non terminal ArrayList<VarDecl> vardecl_opt;
+non terminal ArrayList<ProcDecl> procdecl_list;
+non terminal ArrayList<Expression> exp_list;
+non terminal Expression expression_opt;
+non terminal ArrayList<Elsif> conditional_list;
+non terminal Else conditional_opt;
+non terminal Expression exp_opt2;
+non terminal Operador fatorop;
+non terminal cria_escopo;
+non terminal deleta_escopo;
+
+start with module ;
+
+module ::=  MODULE cria_escopo ID:id PTVIRGULA declarations:d1  BEGIN statements:s1 END ID:id1 deleta_escopo PONTO   
+{:
+	TabelaSimbolo.insereInfo(new ClassInfo(id1,null,null));
+	RESULT = new Module(d1,s1,id1 );
+	parser.raiz=RESULT;
+
+	 parser.escritor.fecharArquivo();
+	
+	if(!id.equals(id1)){
+			System.err.println("Erro sintático, o nome do module deve ser o mesmo nome na finalizacao dele. END. Linha: "+LeitorArquivo.getContLinha()+", Coluna: "+LeitorArquivo.getContCol());
+	}
+:}
+	
+|   MODULE cria_escopo ID:id PTVIRGULA declarations:d1  BEGIN statements:s1 END ID:id1 deleta_escopo  
+{: 
+	RESULT = new Module(d1,s1,id1 );
+	System.out.println(RESULT); 
+	System.err.println("Erro, faltou o '.' ao final do Arquivo. \n Linha: "+parser.lexico.getLeitor().getContLinha());
+	
+	if(!id.equals(id1)){
+			System.err.println("Erro sintático, o nome do module deve ser o mesmo nome na finalizacao dele. END. Linha: "+LeitorArquivo.getContLinha()+", Coluna: "+LeitorArquivo.getContCol());
+	}
+	
+:};
+				
+declarations ::=constdecl_opt:c2 vardecl_opt:v3 procdecl_list:p3   {: RESULT = new Declarations(c2,v3,p3); parser.escritor.escreve(RESULT);:}  ;
+
+constdecl_opt ::= CONST constdecl:c78 {: RESULT =  c78; parser.escritor.escreve(RESULT); :} | {: RESULT = new ConstDecl(); :} ;
+
+constdecl ::= constdecl ID:id IGUAL expression:e PTVIRGULA 
+{: 
+	RESULT = new ConstDecl (id, e);  
+	TabelaSimbolo.insereInfo(new VarInfo(id, Literal.CONST, e)); 
+	SourceGenerator.getInstance().resetarCache();
+:} | ;
+
+expression ::= expression:a5 OR andexp:a15 {: RESULT=new BinaryExpression(a5,a15,Operador.OR); :} | andexp:a25 {: RESULT= a25; :};
+
+andexp ::= andexp:ae16 AND relexp:r16 {: RESULT=new BinaryExpression(ae16,r16,Operador.AND); :} | relexp:r26  {: RESULT = r26; :};
+
+relexp ::= aritexp:ar17 RELOP:a17 aritexp:a217 {: RESULT=new BinaryExpression(ar17,a217,a17); :}   | aritexp:a27   {: RESULT = a27; :};
+
+aritexp ::= aritexp:t17 ADDOP:a18 term:t18 {: RESULT=new BinaryExpression(t17,t18,a18); :}  | term :t29  {: RESULT = t29;  :};
+
+term ::= term:t19 MULTOP:m19 factor:f19 {: RESULT = new BinaryExpression(t19,f19,m19); :} | factor:f29  {: RESULT=f29; :};
+
+factor ::= fatorop:f10 primary:p11 {:if(f10==null){RESULT=p11; } else{ RESULT = new UnaryExpression(p11,f10);} :} ;
+
+fatorop ::= ADDOP:a11  {: RESULT =  a11; :} | NOT:n11 {:RESULT =  Operador.NOT; :} | {: RESULT = null; :} ;
+
+primary ::= OPAR expression:e12 CPAR 
+{: 
+	RESULT =  e12; 
+
+:} 
+| literal:l12 {: RESULT =l12; :}  | variable:v12 {: RESULT = (v12); :}  | proccall:p12 {: RESULT =  p12; :}  ;
+
+exp_opt ::= exp_list:e13 {: RESULT =  e13; :} | {: RESULT = new ArrayList<Expression>();SourceGenerator.getInstance().resetarCache(); :} ;
+
+exp_list ::= exp_list:lista14 VIRGULA expression:e14 {: lista14.add(e14); RESULT = lista14; :} | expression:e15 {: ArrayList<Expression> lista14 = new ArrayList<Expression>(); lista14.add(e15); RESULT=lista14;  :}  ;
+
+proccall ::= ID:id15 actualpar:ac15 
+{:
+	RESULT= new ProcCall(id15,ac15);
+	
+	TabelaSimbolo.insereInfo(new FunCallInfo(id15, ac15));
+	
+	
+ :} ;
+
+actualpar ::= OPAR exp_opt:e16 CPAR{: RESULT= new ActualPar(e16); :}  ;
+
+vardecl ::= vardecl:lista108 idlist:id108 DOISPONTOS vartype:v108 PTVIRGULA 
+	 {:
+
+		for(String id : id108){
+			TabelaSimbolo.insereInfo(new VarInfo(id, v108.getLiteral(), null )); 
+		}
+		lista108.add(new VarDecl(id108,v108)); RESULT =lista108 ;
+ 	:} 
+
+| VAR {: RESULT = new ArrayList<VarDecl>();  :}   ;
+
+idlist ::= idlist:lista110 VIRGULA ID:id1108 
+			{:
+			 	lista110.add(id1108); RESULT = lista110;
+			:}  
+			| ID:id108
+			{: 
+				ArrayList<String> lista110 = new ArrayList<String>(); lista110.add(id108); RESULT=lista110; 
+			:} ;
+
+vartype ::= BOOLEAN {: RESULT = new VarType(Literal.BOOLEAN); :}  | INTEGER {: RESULT = new VarType(Literal.INTEGER);  :} | arraytype:a {:RESULT = a; :}  ;
+
+arraytype ::= ARRAY exp_opt2:e114 OF vartype:v114 {: Validator.validaIntegerExpression(e114);
+
+
+	if(v114.getLiteral() == Literal.INTEGER){
+		RESULT = new ArrayVarType(Literal.ARRAY_TYPE_OF_INTEGER,e114);
+	}
+	else if(v114.getLiteral() == Literal.BOOLEAN){
+		RESULT = new ArrayVarType(Literal.ARRAY_TYPE_OF_BOOLEAN,e114);
+	}
+
+:};     
+
+exp_opt2 ::= expression:e21 {: RESULT = e21;:}   | {: RESULT = new NullableExpression(); :}    ;
+
+procdecl ::= procheader:ph22  PTVIRGULA procbody_opt:pb22  deleta_escopo{:  RESULT = new ProcDecl(ph22,pb22); :}   ;
+
+procbody_opt ::= procbody:p23  {: RESULT =  p23; :} | {: RESULT = new ProcBody(); :} ;
+
+procheader ::= PROCEDURE ID:id24  formalpars:fp24  vartype_opt:v24
+			{: 
+				
+				FunInfo funInfo = new FunInfo(id24, null, v24.getLiteral());
+				TabelaSimbolo.insereInfo(funInfo);
+				Escopos.getInstance().createEscopo(id24);
+				List <Integer> fps = new ArrayList<Integer>();
+				for(FpSection fpSection: fp24.getFpSections()){
+			
+					for(String id:fpSection.getIdList()){
+						int pos = TabelaSimbolo.insereInfo(new ParamInfo(id, fpSection.getVarType().getLiteral() ));
+						fps.add(pos);
+					}
+			
+				}
+				funInfo.setFpar(fps);
+				
+				//inserindo um return como VarInfo
+				if(v24.getLiteral()!=null)
+					TabelaSimbolo.insereInfo(new VarInfo("RESULT",v24.getLiteral(), null));
+
+				RESULT = new ProcHeader(id24,fp24,v24);
+			:}
+			| PROCEDURE formalpars:fp24  vartype_opt:v24
+			{:
+				RESULT = new ProcHeader("",fp24,v24);
+				System.err.println("Faltou identificador da funcao antes do parenteses. \n Linha: "+parser.lexico.getLeitor().getContLinha());
+			:}  ;
+
+vartype_opt ::= DOISPONTOS vartype:v25 {: RESULT = v25; :} | {: RESULT = new VarType(); :};
+
+procbody ::= declarations:d126 BEGIN statements:s126 END ID:id126 {: RESULT = new ProcBody(d126,s126,id126); :} ;
+
+formalpars ::=OPAR fpsection_opt:f128 CPAR {: RESULT = new FormalPars(f128); :} ;
+
+fpsection_opt ::= fpsection_list:f163 {:RESULT=f163; :}   | {: RESULT = new ArrayList<FpSection>(); :} ;
+
+fpsection_list ::= fpsection_list:lista132 PTVIRGULA fpsection:fp2132 {: lista132.add(fp2132); RESULT = lista132;  :} | fpsection:fp132 {: ArrayList<FpSection> lista132 = new ArrayList<FpSection>(); lista132.add(fp132); RESULT=lista132; :}  ;
+
+fpsection ::= var_opt idlist:id134 DOISPONTOS vartype:v134 
+{:		
+ 
+	RESULT = new FpSection(id134, v134);
+	 
+:} ;
+
+var_opt ::= VAR  |  ;
+
+statements ::= statements:lista138 PTVIRGULA statement:s107 {:lista138.add(s107); RESULT=lista138;:}  | statement:s2107 {: ArrayList<Statement> lista138 = new ArrayList<Statement>(); lista138.add(s2107); RESULT = lista138;:}  ;
+
+vardecl_opt ::= vardecl:v140 {: RESULT = v140; :} | {:RESULT=new ArrayList<VarDecl>();:}  ;
+
+procdecl_list ::= procdecl_list:lista142 procdecl:p142 PTVIRGULA {: lista142.add(p142); RESULT=lista142; :} | {: RESULT = new ArrayList<ProcDecl>();  :}  ;
+
+RELOP::=MAIOR {:RESULT = Operador.MAIOR; :} |MENOR {:RESULT = Operador.MENOR; :}|MAIORIGUAL {:RESULT = Operador.MAIORIGUAL;:}| MENORIGUAL {:RESULT = Operador.MENORIGUAL; :}| IGUAL {:RESULT = Operador.IGUAL;:}| DIFERENTE {:RESULT = Operador.DIFERENTE; :}  ;
+
+ADDOP ::= MAIS {:RESULT = Operador.MAIS; :}   |  MENOS {: RESULT = Operador.MENOS; :}   ;
+
+MULTOP ::= MULT {:RESULT =Operador.MULT;:}  | MOD {:RESULT = Operador.MOD;:}  | DIV {:RESULT = Operador.DIV;:}  ;
+
+literal ::= TRUE {:RESULT = new ValorLiteral(Boolean.TRUE); :}  | FALSE {:RESULT = new ValorLiteral(Boolean.FALSE); :}  | NUM:n {:RESULT = new ValorLiteral(n);:}  ;
+
+variable ::= ID:id152 {: RESULT = new Variable(id152); :}  | ID:id1152 OCOL expression_opt:e CCOL {:Validator.validaIntegerExpression(e); RESULT = new ArrayVariable(id1152,e ); :} | ID:id1152 PONTO SIZE 
+{:
+	Validator.validaVetor(id1152);
+	RESULT = new ValorLiteral(1);
+	SourceGenerator.getInstance().resetarCache();
+:}  ;
+
+expression_opt ::= expression:e154 {: RESULT = e154; :}  | {: RESULT = null; :}  ;
+
+statement ::= assignment:a116 {:RESULT = a116; :} | conditional:c116 {:RESULT =c116; :}   | repetion:r116 {:RESULT = r116; :}  | proccall:p116 {:RESULT = p116;:}  | io_statement:i116 {:RESULT =i116;:}  ;
+
+assignment ::= variable:v117 ATRIB expression:e117 {: TabelaSimbolo.modificaInfo(((Variable)v117).getId(), e117); RESULT =  new Assignment(((Variable)v117).getId(), e117); :} ;
+ 
+conditional ::=  IF cria_escopo expression:e160 THEN statements:s160 conditional_list:cl160 conditional_opt:co160 deleta_escopo END {: RESULT = new Conditional(e160,s160,cl160,co160);:} ;
+
+conditional_list ::=  conditional_list:lista162 cria_escopo ELSIF expression:e119 THEN statements:s119 deleta_escopo {:lista162.add(new Elsif(e119,s119)); RESULT = lista162;:}  |  {: RESULT = new ArrayList<Elsif>();  :};
+
+conditional_opt ::= ELSE cria_escopo statements:s164 deleta_escopo{: RESULT = new Else(s164); :} | {: RESULT = new Else(); :}  ;
+
+repetion ::=  WHILE cria_escopo expression:e166 DO statements:s166 deleta_escopo END {: RESULT = new Repetition(e166,s166,RepetitionType.WHILE); SourceGenerator.getInstance().resetarCache();:} |cria_escopo REPEAT statement:s1166 UNTIL expression:e1166 deleta_escopo {: ArrayList<Statement> lista = new ArrayList<Statement>(); lista.add(s1166); RESULT = new Repetition(e1166,lista,RepetitionType.REPEAT); SourceGenerator.getInstance().resetarCache();:} ;
+
+io_statement ::= WRITE OPAR expression:e168 CPAR {: Validator.validaIntegerExpression(e168);RESULT = new IoStatement(e168, IoType.WRITE);:}  | WRITELN {:RESULT = new IoStatement(null, IoType.WRITE);:} | WRITELN OPAR expression:e1168 CPAR {:RESULT = new IoStatement(e1168, IoType.WRITELN_PARAMETO);:}  | READ OPAR expression:e2168 CPAR {:Validator.validaIntegerExpression(e2168); RESULT = new IoStatement(e2168, IoType.READ);:}  ;
+
+
+
+cria_escopo ::= {: 
+					Escopos.getInstance().createEscopo(((LogSymbolFactory)parser.getSymbolFactory()).getNomeAnteriorSymbol()); 
+					
+				:};
+
+
+deleta_escopo ::= {: 
+					Escopos.getInstance().removeEscopo(); 
+					
+				:};
+				
+
+					
+
